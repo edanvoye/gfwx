@@ -1,0 +1,50 @@
+;
+; GFWX Codec VfW Wrapper (32 bit)
+;
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles=GFWX.Files.Inf,GFWX.Files.Dll
+AddReg=GFWX.Reg
+UpdateInis=GFWX.INIs
+
+[DefaultUnInstall]
+DelFiles=GFWX.Files.Dll,GFWX.Files.Inf
+DelReg=GFWX.Reg
+UpdateInis=GFWX.INIs.Del
+
+[SourceDisksNames]
+1="GFWX codec (32bit)","",1
+
+[SourceDisksFiles]
+GFWX32.INF=1
+GFWX32.DLL=1
+
+[DestinationDirs]
+GFWX.Files.Inf=17
+GFWX.Files.Dll=11
+
+[GFWX.Files.Inf]
+GFWX32.INF
+
+[GFWX.Files.Dll]
+GFWX32.DLL
+
+[GFWX.Reg]
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,Description,,"GFWX codec (32bit) [GFWX]"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,Driver,,"GFWX32.dll"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,FriendlyName,,"GFWX codec (32bit) [GFWX]"
+
+HKLM,"Software\Microsoft\Windows NT\CurrentVersion\drivers.desc",GFWX32.dll,,"GFWX codec (32bit) [GFWX]"
+HKLM,"Software\Microsoft\Windows NT\CurrentVersion\Drivers32",VIDC.GFWX,,"GFWX32.dll"
+
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX32
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX32,DisplayName,,"GFWX codec (32bit) (Remove Only)"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX32,UninstallString,,"%11%\rundll32.exe setupapi.dll,InstallHinfSection DefaultUninstall 132 %17%\GFWX32.INF"
+
+[GFWX.INIs]
+system.ini, drivers32,, "VIDC.GFWX=GFWX32.dll"
+
+[GFWX.INIs.Del]
+system.ini, drivers32, "VIDC.GFWX=GFWX32.dll"

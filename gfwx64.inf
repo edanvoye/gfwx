@@ -1,0 +1,46 @@
+;
+; GFWX Codec VfW Wrapper (64 bit)
+;
+[version]
+signature="$CHICAGO$"
+Class = MEDIA
+
+[DefaultInstall]
+CopyFiles=GFWX.Files.Inf,GFWX.Files.Dll
+AddReg=GFWX.Reg
+MediaType = SOFTWARE
+
+[Remove_GFWX]
+DelFiles=GFWX.Files.Dll,GFWX.Files.Inf
+DelReg=GFWX.Reg
+
+[SourceDisksNames]
+1="GFWX codec (64bit)",,1
+
+[SourceDisksFiles]
+GFWX64.dll=1
+GFWX64.INF=1
+
+[Installable.Drivers]
+GFWX = 1:GFWX64.dll, "vidc.GFWX", "GFWX codec (64bit) [GFWX]",,,
+
+[DestinationDirs]
+GFWX.Files.Inf=17
+GFWX.Files.Dll=11
+
+[GFWX.Files.Inf]
+GFWX64.INF
+
+[GFWX.Files.Dll]
+GFWX64.DLL
+
+[GFWX.Reg]
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\drivers32,vidc.GFWX,,GFWX64.dll
+HKLM,SOFTWARE\Microsoft\Windows NT\CurrentVersion\drivers.desc, GFWX64.dll,, "GFWX codec (64bit)"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,Description,,"GFWX codec (64bit) [GFWX]"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,Driver,,"GFWX64.dll"
+HKLM,SYSTEM\CurrentControlSet\Control\MediaResources\icm\VIDC.GFWX,FriendlyName,,"GFWX codec (64bit) [GFWX]"
+
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX64
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX64,DisplayName,,"GFWX codec (64bit) (Remove Only)"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\GFWX64,UninstallString,,"%11%\rundll32.exe setupapi,InstallHinfSection Remove_GFWX 132 %17%\GFWX64.INF"
