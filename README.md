@@ -1,3 +1,19 @@
+
+Video for Windows Codec based on GFWX: Good, Fast Wavelet Codec
+===============================================================
+
+This is a fork of the GFWX codec, wrapped in a codec dll for Vidwo For Windows. This codec will allow GFWX to be used inside AVI files.
+The codec has been tested with Windows Media Player, VirtualDUB and the Windows Explorer.
+It currently supports RGB 24, RGBA 32 and Y8 Grayscale data.
+
+Support for various YUV formats will be added at a later time.
+
+
+
+
+
+This is the original README.md from GFWX:
+
 GFWX: Good, Fast Wavelet Codec
 ==============================
 
